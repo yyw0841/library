@@ -1,0 +1,19 @@
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+	int i,j;
+	i = m - 1;//nums1
+	j = n - 1;//nums2
+	while(i >= 0 && j >= 0){
+		if(nums1[i] < nums2[j]){
+			nums1[i+j+1] = nums2[j];//填入大的值到i+j+1
+			j--;//向前移一位
+		}
+		else{
+			nums1[i+j+1] = nums1[i];
+			i--;
+		}
+	}
+	while(j >= 0){//若剩下nums1，直接就是其中的值；若剩下nums2，则倒序依次填进去
+		nums1[j] = nums2[j];
+		j--;
+	}
+}
