@@ -1,0 +1,22 @@
+int** generate(int numRows, int* returnSize, int** returnColumnSizes)
+{
+	*returnSize = numRows;//返回的行数
+	*returnColumnSizes = (int *)malloc(sizeof(int )*numRows);//用来储存每一行的大小
+	int **a = (int **)malloc(sizeof(int *)*numRows);
+	
+	for(int i = 0; i < numRows; i++){
+		
+		(*returnColumnSizes)[i] = i+1;//每行的大小
+		a[i] = (int *)malloc(sizeof(int)*(i+1));//分配出i+1的大小的空间
+		
+		for(int j=0; j <= i; j++){
+			if(j == i || j == 0){//设定三角的边界规律值
+				a[i][j] = 1;
+			}
+			else
+				a[i][j] = a[i-1][j-1] + a[i-1][j];
+		}
+	}
+
+	return a;
+}
