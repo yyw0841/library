@@ -1,0 +1,19 @@
+struct ListNode* middleNode(struct ListNode* head){
+    int len = 0;
+    struct ListNode* pNode = head;
+
+    //  获取单链表长度
+    while (pNode != NULL) {
+        len++;
+        pNode = pNode->next;
+    }
+    
+    struct ListNode* Node = head;
+    //  获取中间结点位置
+    int k = (len % 2) ? (len + 1)/2 : ((len/2) + 1);
+    for (int i = 1; i < k; ++i) {
+        Node = Node->next;
+    }
+
+    return Node;
+}
