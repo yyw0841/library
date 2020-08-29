@@ -1,0 +1,24 @@
+struct ListNode {
+      int val;
+      struct ListNode *next;
+  };
+
+struct ListNode *reverseList(struct ListNode *head)
+{
+    struct ListNode *p = NULL;
+    struct ListNode *pre = NULL;
+    struct ListNode *cur = head;
+
+    while (cur != NULL) {
+        struct ListNode *next = cur->next;
+        if (next == NULL) {
+            p = cur;
+        }
+
+        cur->next = pre;
+        pre = cur;
+        cur = next;
+    }
+
+    return p;
+}
