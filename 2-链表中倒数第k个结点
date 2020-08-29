@@ -1,0 +1,17 @@
+struct ListNode* getKthFromEnd(struct ListNode* head, int k){
+    struct ListNode*p = head;
+    int length = 0;
+    while(p!=NULL){
+        length++;
+        p=p->next;
+    }
+    int i=1;
+    struct ListNode*q = head;
+    while(i<length-k+1){
+        i++;
+        q=q->next;
+    }
+
+    return q;
+
+}
