@@ -1,3 +1,10 @@
+struct ListNode
+{
+      int val;
+      struct ListNode *next;
+  };
+
+
 struct ListNode* getKthFromEnd(struct ListNode* head, int k){
     struct ListNode*p = head;
     int length = 0;
